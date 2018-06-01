@@ -501,7 +501,7 @@ save.image(,file=paste(format(Sys.time(), "%Y-%m-%d %I-%p"),"Simulation.Data.toy
 res.mat[,1]<-apply(cbind(main_p[,1]),1,prod)*nfish  #A
 res.mat[,2]<-apply(cbind(main_p[,2]),1,prod)*nfish   #B
 res.mat[,3]<-apply(cbind(main_p[,3]),1,prod)*nfish   #C
-res.mat[,3]<-apply(cbind(main_p[,4]),1,prod)*nfish   #stay at dam
+res.mat[,4]<-apply(cbind(main_p[,4]),1,prod)*nfish   #stay at dam
 
 #for A stream
 #A LOW--proportion going to mainstem (1), A1 (2), up(3)
