@@ -3,7 +3,10 @@
 #Contact information: lwaterhouse@ucsd.edu
 ##################################################
 
-#The purpose of this code is to generate tag detection data for a system
+#The purpose of this code is to simulate tag detection data for a system
+#and then estimate the detection rates and proportions of tagged individuals
+#going to sections of the system
+
 #You must have JAGS installed in order to run this code
 
 
