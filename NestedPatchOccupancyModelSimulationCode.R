@@ -940,17 +940,26 @@ main.est.vals[,,2] #this is the nsim value of 2.5%, median, and 97.5% for B
 main.est.vals[,,3] #this is the nsim value of 2.5%, median, and 97.5% for C
 
 #to calculate how many times the truth is in the 95% CI
-A.inside<-rep(NA,length=nsim)
-for(i in 1:nsim){
-  if(orig.A.mat[i,1]>=main.est.median[1,i,1]&orig.A.mat[i,1]<=main.est.median[3,i,1]){
-    A.inside[i]<-1
-  }else{A.inside[i]<-0}
+CIeval<-function(true.mat,fit.mat){
+  mat.inside<-rep(NA,length=nsim)
+  for(i in 1:nsim){
+    if(true.mat[i,1]>=fit.mat[1,i]&true.mat[i,1]<=fit.mat[3,i]){
+      mat.inside[i]<-1
+    }else{mat.inside[i]<-0}
+  }
+  return(mat.inside)
 }
+A.inside<-CIeval(true.mat=orig.A.mat,fit.mat=main.est.vals[,,1])
 table(A.inside) #how many times was the true value for # fish entering A inside the 
                 #95% Bayes CI
+B.inside<-CIeval(true.mat=orig.B.mat,fit.mat=main.est.vals[,,2])
+table(B.inside)
+
+C.inside<-CIeval(true.mat=orig.C.mat,fit.mat=main.est.vals[,,3])
+table(C.inside)
 
 #to calculate % bias of median of MCMC estimate
-A.percbias<-100*(main.est.median[2,,1]-orig.A.mat[,1])/orig.A.mat[,1]
+A.percbias<-100*(main.est.vals[2,,1]-orig.A.mat[,1])/orig.A.mat[,1]
 A.percbias
 boxplot(A.percbias) #boxplot of % bias of median
 
