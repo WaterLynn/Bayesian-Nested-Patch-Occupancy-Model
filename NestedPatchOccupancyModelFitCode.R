@@ -40,6 +40,12 @@ tagdat<-read.csv("ExampleData1_100fish_detectionerror.csv")
 head(tagdat)
 
 dim(tagdat) #there are 100 fish, and 24 detection spots
+tagdat<-tagdat[,2:24]
+#break the observed data into chunks of stream
+Abase<-tagdat[,1:7]
+Bbase<-tagdat[,8:14]
+Cbase<-tagdat[,15:23]
+
 
 #"ExampleModel_Diagram_NPOMS.pdf" provides a visual of this river system
 
