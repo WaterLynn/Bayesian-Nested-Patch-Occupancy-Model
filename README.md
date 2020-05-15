@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/161533190.svg)](https://zenodo.org/badge/latestdoi/161533190)
+
 
 # Bayesian-Nested-Patch-Occupancy-Model
 Model code in R for Bayesian nested patch occupancy model. Originally created for PIT tag salmonids, to estimate escapement to sections of a river network.
